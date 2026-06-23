@@ -1,148 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TIME KAMU - Preset</title>
+<title>Cinematic Preset - TIME KAMU</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial, sans-serif;
 }
 
 body{
 background:#f7f7f7;
-padding-bottom:100px;
+padding:20px;
+color:#111;
 }
 
-.banner{
-width:100%;
-height:320px;
-overflow:hidden;
+.topbar{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:25px;
 }
 
-.banner img{
-width:100%;
-height:100%;
-object-fit:cover;
+.back{
+font-size:22px;
+text-decoration:none;
+color:#111;
 }
 
 .card{
-width:92%;
-margin:-50px auto 20px;
-background:white;
+background:#fff;
 border-radius:35px;
 padding:25px;
-position:relative;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 5px 25px rgba(0,0,0,.05);
 }
 
-.vip{
-position:absolute;
-top:20px;
-right:20px;
-background:#2196f3;
-color:white;
-padding:8px 15px;
-border-radius:20px;
-font-weight:bold;
+.title-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
 }
 
 .title{
 font-size:32px;
-font-weight:bold;
-margin-top:10px;
+font-weight:700;
+}
+
+.vip{
+background:#111;
+color:#fff;
+padding:8px 16px;
+border-radius:50px;
+font-size:14px;
 }
 
 .price{
 font-size:28px;
-font-weight:bold;
-margin-top:10px;
-color:#000;
+font-weight:700;
+margin-bottom:15px;
 }
 
 .desc{
-margin-top:15px;
-color:#666;
-line-height:28px;
-font-size:17px;
+color:#777;
+line-height:1.7;
+margin-bottom:25px;
 }
 
-.preview{
-margin-top:25px;
+.grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px;
+gap:15px;
+margin-bottom:25px;
 }
 
-.preview img{
+.grid img{
 width:100%;
 aspect-ratio:1/1;
 object-fit:cover;
-border-radius:20px;
+border-radius:22px;
 }
 
-.btn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:20px;
-font-size:20px;
-font-weight:bold;
-cursor:pointer;
-margin-top:20px;
+.rating{
+text-align:center;
+font-size:18px;
+font-weight:600;
+margin-bottom:25px;
 }
 
 .buy{
-background:#000;
-color:#fff;
-}
-
-.back{
-background:#fff;
-border:2px solid #eee;
+width:100%;
+height:60px;
+border:none;
+border-radius:18px;
+background:#111;
+color:white;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
 }
 </style>
-
 </head>
-
 <body>
 
-<div class="banner">
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200">
+<div class="topbar">
+<a href="home.html" class="back">←</a>
 </div>
 
 <div class="card">
 
-<div class="vip">VIP</div>
-
+<div class="title-row">
 <h1 class="title">Cinematic Preset</h1>
+<span class="vip">VIP</span>
+</div>
 
 <div class="price">₹49</div>
 
-<div class="desc">
+<p class="desc">
 Professional cinematic color grading preset.
-Perfect for Instagram reels, travel videos,
-and premium photo editing.
+Perfect for Instagram reels, travel videos and premium editing.
+</p>
+
+<div class="grid">
+<img src="https://picsum.photos/500?1">
+<img src="https://picsum.photos/500?2">
+<img src="https://picsum.photos/500?3">
+<img src="https://picsum.photos/500?4">
 </div>
 
-<div class="preview">
-<img src="https://picsum.photos/400?1">
-<img src="https://picsum.photos/400?2">
-<img src="https://picsum.photos/400?3">
-<img src="https://picsum.photos/400?4">
+<div class="rating">
+⭐⭐⭐⭐⭐ 4.9 Rating
 </div>
 
-<button class="btn buy">
+<button class="buy">
 Buy Now
-</button>
-
-<button class="btn back"
-onclick="location.href='home.html'">
-Back
 </button>
 
 </div>
