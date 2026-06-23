@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TIME KAMU Payment</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -21,247 +23,277 @@ padding:20px;
 color:#111;
 }
 
-.back{
-font-size:32px;
-text-decoration:none;
-color:#111;
+.container{
+max-width:420px;
+margin:auto;
 }
 
-.container{
-margin-top:15px;
-background:white;
-border-radius:35px;
-padding:25px;
-box-shadow:0 15px 50px rgba(0,0,0,0.05);
+.back-btn{
+text-decoration:none;
+font-size:34px;
+color:#111;
+display:inline-block;
+margin-bottom:15px;
+}
+
+.header{
+text-align:center;
+margin-bottom:25px;
 }
 
 .logo{
-width:90px;
-height:90px;
+width:72px;
+height:72px;
 background:#111;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:45px;
+font-size:34px;
 margin:auto;
 }
 
-.title{
-text-align:center;
+.header h1{
+font-size:34px;
+font-weight:800;
 margin-top:15px;
 }
 
-.title h1{
-font-size:52px;
-font-weight:800;
-}
-
-.title p{
+.header p{
 color:#888;
-font-size:20px;
-margin-top:5px;
+margin-top:6px;
+font-size:15px;
 }
 
-.product{
-margin-top:30px;
-background:#fafafa;
-border-radius:25px;
-padding:20px;
+.product-card{
+background:white;
+border-radius:28px;
+padding:16px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+gap:15px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
-.product h2{
-font-size:24px;
+.thumb{
+width:85px;
+height:85px;
+border-radius:20px;
+object-fit:cover;
 }
 
-.product p{
-color:#777;
-margin-top:5px;
+.product-info{
+flex:1;
+}
+
+.vip{
+display:inline-block;
+background:#111;
+color:white;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+margin-bottom:8px;
+}
+
+.product-info h2{
+font-size:18px;
+font-weight:700;
+}
+
+.product-info p{
+font-size:13px;
+color:#888;
+margin-top:3px;
 }
 
 .price{
-font-size:38px;
+font-size:30px;
 font-weight:800;
 }
 
 .section-title{
-margin-top:30px;
-margin-bottom:15px;
-font-size:20px;
+font-size:18px;
 font-weight:700;
-}
-
-.methods{
-display:flex;
-gap:10px;
-overflow:auto;
-}
-
-.method{
-padding:12px 18px;
-background:white;
-border-radius:15px;
-border:1px solid #eee;
-font-weight:600;
-white-space:nowrap;
+margin:25px 0 12px;
 }
 
 .qr-card{
-margin-top:20px;
 background:white;
-border-radius:30px;
-padding:25px;
+padding:20px;
+border-radius:28px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 text-align:center;
-border:2px dashed #ddd;
 }
 
-.qr-box{
-height:260px;
-background:#f5f5f5;
-border-radius:25px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-color:#999;
-font-weight:600;
+.qr{
+width:220px;
+height:220px;
+border-radius:20px;
+object-fit:cover;
 }
 
 .upi-card{
 margin-top:20px;
-background:#fafafa;
-padding:18px;
-border-radius:20px;
-text-align:center;
 }
 
-.upi-card p{
-color:#888;
+.upi-label{
 font-size:14px;
-margin-bottom:10px;
+font-weight:700;
+margin-bottom:8px;
+}
+
+.upi-box{
+background:white;
+border-radius:20px;
+padding:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
 .upi-id{
-font-size:22px;
+font-size:15px;
 font-weight:700;
 }
 
 .copy-btn{
-margin-top:15px;
-width:100%;
-height:55px;
+background:#111;
+color:white;
 border:none;
-background:white;
-border-radius:18px;
-font-size:17px;
-font-weight:700;
+padding:10px 14px;
+border-radius:12px;
+font-weight:600;
 cursor:pointer;
 }
 
-.input{
-margin-top:20px;
+.txn-input{
 width:100%;
-height:60px;
-border:none;
-background:#fafafa;
-border-radius:18px;
-padding:0 20px;
-font-size:17px;
-outline:none;
-}
-
-.support{
-display:block;
+height:58px;
 margin-top:20px;
-text-align:center;
-text-decoration:none;
-color:#25D366;
-font-size:20px;
-font-weight:700;
+border:none;
+background:white;
+border-radius:20px;
+padding:0 18px;
+font-size:16px;
+outline:none;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
 .verify-btn{
-margin-top:25px;
 width:100%;
-height:65px;
+height:58px;
+margin-top:20px;
 border:none;
 background:#111;
 color:white;
-font-size:20px;
-font-weight:800;
-border-radius:22px;
+font-size:18px;
+font-weight:700;
+border-radius:20px;
 cursor:pointer;
+}
+
+.support-btn{
+display:block;
+text-align:center;
+margin-top:18px;
+text-decoration:none;
+font-weight:700;
+color:#25D366;
+font-size:18px;
 }
 
 .footer{
 text-align:center;
-margin-top:20px;
+margin-top:18px;
+font-size:13px;
 color:#999;
-font-size:14px;
 }
+
 </style>
 </head>
 
 <body>
 
-<a href="preset.html" class="back">←</a>
-
 <div class="container">
 
+<a href="preset.html" class="back-btn">←</a>
+
+<div class="header">
 <div class="logo">👑</div>
-
-<div class="title">
-<h1>Payment</h1>
-<p>Complete your purchase</p>
+<h1>Complete Purchase</h1>
+<p>Premium Preset Access</p>
 </div>
 
-<div class="product">
-<div>
+<div class="product-card">
+
+<img
+src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500"
+class="thumb">
+
+<div class="product-info">
+
+<span class="vip">VIP</span>
+
 <h2>Cinematic Preset</h2>
-<p>VIP Access</p>
-</div>
-<div class="price">₹49</div>
+
+<p>Premium Color Grading Pack</p>
+
 </div>
 
-<h3 class="section-title">Payment Methods</h3>
+<div class="price">
+₹49
+</div>
 
-<div class="methods">
-<div class="method">📱 PhonePe</div>
-<div class="method">🟢 GPay</div>
-<div class="method">🔵 Paytm</div>
-<div class="method">💳 UPI</div>
+</div>
+
+<div class="section-title">
+Scan QR Code
 </div>
 
 <div class="qr-card">
-<div class="qr-box">
-QR CODE
-</div>
+
+<img
+src="Screenshot_20260623-162531.png"
+class="qr">
+
 </div>
 
 <div class="upi-card">
-<p>UPI ID</p>
-<div class="upi-id">6294778013-2@ybl</div>
 
-<button class="copy-btn"
+<div class="upi-label">
+UPI ID
+</div>
+
+<div class="upi-box">
+
+<div class="upi-id">
+6294778013-2@ybl
+</div>
+
+<button
+class="copy-btn"
 onclick="copyUPI()">
-Copy UPI ID
+Copy
 </button>
+
+</div>
+
 </div>
 
 <input
-class="input"
+type="text"
+class="txn-input"
 placeholder="Enter Transaction ID">
 
 <button class="verify-btn">
-VERIFY PAYMENT
+Verify Payment
 </button>
 
 <a
-class="support"
-href="https://wa.me/916294778013">
+href="https://wa.me/916294778013"
+class="support-btn">
 WhatsApp Support
 </a>
 
@@ -272,12 +304,17 @@ Secure Payment • TIME KAMU
 </div>
 
 <script>
+
 function copyUPI(){
+
 navigator.clipboard.writeText(
 "6294778013-2@ybl"
 );
-alert("UPI ID Copied!");
+
+alert("UPI ID Copied");
+
 }
+
 </script>
 
 </body>
