@@ -1,36 +1,25 @@
-<!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TIME KAMU</title><style>
-*{
+<style>
+body{
 margin:0;
 padding:0;
-box-sizing:border-box;
+background:#f5f5f5;
 font-family:Arial,sans-serif;
-}
-
-body{
-background:#f8f8f8;
-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:20px;
+min-height:100vh;
 }
 
 .phone{
-width:100%;
-max-width:420px;
-background:white;
-border-radius:35px;
+width:390px;
+background:#fff;
+border-radius:40px;
 overflow:hidden;
 box-shadow:0 10px 40px rgba(0,0,0,.15);
 }
 
 .hero{
-width:100%;
-height:320px;
+height:380px;
 overflow:hidden;
 }
 
@@ -41,34 +30,39 @@ object-fit:cover;
 }
 
 .content{
+background:#fff;
+margin-top:-50px;
+border-radius:50px 50px 0 0;
 padding:30px;
 text-align:center;
+position:relative;
 }
 
 .logo{
-font-size:40px;
+font-size:60px;
 margin-bottom:10px;
 }
 
-h1{
-font-size:36px;
+.title{
+font-size:42px;
 font-weight:700;
+color:#222;
 margin-bottom:15px;
-color:#111;
 }
 
-p{
+.sub{
+font-size:18px;
 color:#666;
-line-height:1.6;
-margin-bottom:30px;
+line-height:30px;
+margin-bottom:35px;
 }
 
 .btn{
 width:100%;
-padding:16px;
+padding:18px;
 border:none;
-border-radius:30px;
-font-size:18px;
+border-radius:35px;
+font-size:20px;
 font-weight:bold;
 cursor:pointer;
 margin-bottom:15px;
@@ -82,29 +76,23 @@ color:white;
 .signup{
 background:white;
 border:2px solid #ddd;
+color:#111;
 }
 
 .music{
-background:#0ea5e9;
+background:#2196f3;
 color:white;
 }
-</style></head><body><div class="phone"><div class="hero">
-<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750">
-</div><div class="content"><div class="logo">👑</div><h1>TIME KAMU</h1><p>
+</style><div class="phone"><div class="hero">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200">
+</div><div class="content"><div class="logo">👑</div><div class="title">TIME KAMU</div><div class="sub">
 Premium Preset Marketplace<br>
 Photo & Video Presets
-</p><button class="btn login">
-LOGIN
-</button><button class="btn signup">
-SIGN UP
-</button><button class="btn music" onclick="startMusic()">
-🎵 ENTER APP
-</button><audio id="bgmusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio></div></div><script>
-function startMusic(){
-document.getElementById("bgmusic").play();
-alert("Welcome To TIME KAMU");
-}
-</script></body>
-</html>
+</div><button class="btn login">Login</button>
+
+<button class="btn signup">Sign Up</button>
+
+<button class="btn music">🎵 Enter App</button>
+
+</div>
+</div>
