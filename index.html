@@ -1,1 +1,110 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIME KAMU</title><style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
+body{
+background:#f8f8f8;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.phone{
+width:100%;
+max-width:420px;
+background:white;
+border-radius:35px;
+overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,.15);
+}
+
+.hero{
+width:100%;
+height:320px;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.content{
+padding:30px;
+text-align:center;
+}
+
+.logo{
+font-size:40px;
+margin-bottom:10px;
+}
+
+h1{
+font-size:36px;
+font-weight:700;
+margin-bottom:15px;
+color:#111;
+}
+
+p{
+color:#666;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+.btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:30px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+.login{
+background:#111;
+color:white;
+}
+
+.signup{
+background:white;
+border:2px solid #ddd;
+}
+
+.music{
+background:#0ea5e9;
+color:white;
+}
+</style></head><body><div class="phone"><div class="hero">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750">
+</div><div class="content"><div class="logo">👑</div><h1>TIME KAMU</h1><p>
+Premium Preset Marketplace<br>
+Photo & Video Presets
+</p><button class="btn login">
+LOGIN
+</button><button class="btn signup">
+SIGN UP
+</button><button class="btn music" onclick="startMusic()">
+🎵 ENTER APP
+</button><audio id="bgmusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio></div></div><script>
+function startMusic(){
+document.getElementById("bgmusic").play();
+alert("Welcome To TIME KAMU");
+}
+</script></body>
+</html>
