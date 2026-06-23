@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Orders - TIME KAMU</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f6f6f7;
+padding:20px;
+}
+
+.container{
+max-width:420px;
+margin:auto;
+}
+
+.header{
+background:white;
+border-radius:35px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+margin-bottom:20px;
+}
+
+.title{
+font-size:42px;
+font-weight:800;
+color:#111;
+}
+
+.subtitle{
+color:#888;
+margin-top:8px;
+font-size:16px;
+}
+
+.order-card{
+background:white;
+border-radius:30px;
+padding:20px;
+margin-bottom:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.04);
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.preset{
+font-size:24px;
+font-weight:700;
+color:#111;
+}
+
+.status{
+background:#18c964;
+color:white;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+.info{
+color:#777;
+font-size:15px;
+line-height:28px;
+}
+
+.download{
+width:100%;
+height:55px;
+border:none;
+background:#111;
+color:white;
+border-radius:18px;
+font-size:18px;
+font-weight:700;
+margin-top:15px;
+}
+
+.back{
+width:100%;
+height:60px;
+border:none;
+background:white;
+border:2px solid #e5e5e5;
+border-radius:20px;
+font-size:18px;
+font-weight:700;
+margin-top:15px;
+}
+
+.footer{
+text-align:center;
+color:#999;
+margin-top:20px;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="title">My Orders</div>
+<div class="subtitle">Purchased Premium Presets</div>
+</div>
+
+<div class="order-card">
+
+<div class="top">
+<div class="preset">Cinematic Preset</div>
+<div class="status">Completed</div>
+</div>
+
+<div class="info">
+Order ID : #TK2026<br>
+Amount : ₹49<br>
+Date : 23 Jun 2026
+</div>
+
+<button class="download">
+Download Preset
+</button>
+
+</div>
+
+<div class="order-card">
+
+<div class="top">
+<div class="preset">Dark Tone Preset</div>
+<div class="status">Completed</div>
+</div>
+
+<div class="info">
+Order ID : #TK2025<br>
+Amount : ₹49<br>
+Date : 20 Jun 2026
+</div>
+
+<button class="download">
+Download Preset
+</button>
+
+</div>
+
+<button class="back"
+onclick="window.location.href='profile.html'">
+Back To Profile
+</button>
+
+<div class="footer">
+TIME KAMU Premium Orders
+</div>
+
+</div>
+
+</body>
+</html>
