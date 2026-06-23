@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIME KAMU - Preset</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f7f7f7;
+padding-bottom:100px;
+}
+
+.banner{
+width:100%;
+height:320px;
+overflow:hidden;
+}
+
+.banner img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.card{
+width:92%;
+margin:-50px auto 20px;
+background:white;
+border-radius:35px;
+padding:25px;
+position:relative;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.vip{
+position:absolute;
+top:20px;
+right:20px;
+background:#2196f3;
+color:white;
+padding:8px 15px;
+border-radius:20px;
+font-weight:bold;
+}
+
+.title{
+font-size:32px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.price{
+font-size:28px;
+font-weight:bold;
+margin-top:10px;
+color:#000;
+}
+
+.desc{
+margin-top:15px;
+color:#666;
+line-height:28px;
+font-size:17px;
+}
+
+.preview{
+margin-top:25px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.preview img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:20px;
+}
+
+.btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:20px;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+}
+
+.buy{
+background:#000;
+color:#fff;
+}
+
+.back{
+background:#fff;
+border:2px solid #eee;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="banner">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200">
+</div>
+
+<div class="card">
+
+<div class="vip">VIP</div>
+
+<h1 class="title">Cinematic Preset</h1>
+
+<div class="price">₹49</div>
+
+<div class="desc">
+Professional cinematic color grading preset.
+Perfect for Instagram reels, travel videos,
+and premium photo editing.
+</div>
+
+<div class="preview">
+<img src="https://picsum.photos/400?1">
+<img src="https://picsum.photos/400?2">
+<img src="https://picsum.photos/400?3">
+<img src="https://picsum.photos/400?4">
+</div>
+
+<button class="btn buy">
+Buy Now
+</button>
+
+<button class="btn back"
+onclick="location.href='home.html'">
+Back
+</button>
+
+</div>
+
+</body>
+</html>
