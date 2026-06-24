@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cinematic Preset - TIME KAMU</title>
+<title>TIME KAMU Preset</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -105,6 +105,7 @@ cursor:pointer;
 }
 </style>
 </head>
+
 <body>
 
 <div class="topbar">
@@ -114,33 +115,107 @@ cursor:pointer;
 <div class="card">
 
 <div class="title-row">
-<h1 class="title">Cinematic Preset</h1>
-<span class="vip">VIP</span>
+<h1 class="title" id="title">Loading...</h1>
+<span class="vip" id="category">VIP</span>
 </div>
 
-<div class="price">₹49</div>
+<div class="price" id="price">₹0</div>
 
-<p class="desc">
-Professional cinematic color grading preset.
-Perfect for Instagram reels, travel videos and premium editing.
+<p class="desc" id="desc">
+Loading...
 </p>
 
 <div class="grid">
-<img src="https://picsum.photos/500?1">
-<img src="https://picsum.photos/500?2">
-<img src="https://picsum.photos/500?3">
-<img src="https://picsum.photos/500?4">
+<img id="thumb1" src="">
+<img id="thumb2" src="">
+<img id="thumb3" src="">
+<img id="thumb4" src="">
 </div>
 
 <div class="rating">
 ⭐⭐⭐⭐⭐ 4.9 Rating
 </div>
 
-<button class="buy">
+<button class="buy" id="buyBtn">
 Buy Now
 </button>
 
 </div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyDbrMx6RdN_VnSxt1VspKn8yA5HvNeHMQE",
+authDomain: "kamupreset1.firebaseapp.com",
+projectId: "kamupreset1",
+storageBucket: "kamupreset1.firebasestorage.app",
+messagingSenderId: "79907609973",
+appId: "1:79907609973:web:a65ab09ce59b99d37f873c",
+measurementId: "G-34SBTMX2FX"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if(id){
+
+const snap = await getDoc(doc(db,"presets",id));
+
+if(snap.exists()){
+
+const data = snap.data();
+
+document.getElementById("title").innerText =
+data.title || "";
+
+document.getElementById("category").innerText =
+data.category || "VIP";
+
+document.getElementById("price").innerText =
+"₹" + (data.price || 0);
+
+document.getElementById("desc").innerText =
+data.description || "";
+
+document.getElementById("thumb1").src =
+data.thumbnail || "";
+
+document.getElementById("thumb2").src =
+data.thumbnail || "";
+
+document.getElementById("thumb3").src =
+data.thumbnail || "";
+
+document.getElementById("thumb4").src =
+data.thumbnail || "";
+
+document.title =
+data.title + " - TIME KAMU";
+
+}
+
+}
+
+document.getElementById("buyBtn").onclick = () => {
+
+window.location.href =
+"payment.html?id=" + id;
+
+};
+
+</script>
 
 </body>
 </html>
