@@ -149,12 +149,12 @@ font-size:14px;
 
 <div class="avatar">👑</div>
 
-<div class="name">Indrajit</div>
+<div class="name" id="userName">Loading...</div>
 
 <div class="badge">VIP MEMBER</div>
 
-<div class="number">
-+91 8436778013
+<div class="number" id="userEmail">
+Loading...
 </div>
 
 <div class="stats">
@@ -204,7 +204,7 @@ font-size:14px;
 
 </div>
 
-<button class="logout" onclick="location.href='login.html'">
+<button class="logout">
 Logout
 </button>
 
@@ -215,6 +215,37 @@ TIME KAMU Premium Account
 </div>
 
 </div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDbrMx6RdN_VnSxt1VspKn8yA5HvNeHMQE",
+  authDomain: "kamupreset1.firebaseapp.com",
+  projectId: "kamupreset1",
+  storageBucket: "kamupreset1.firebasestorage.app",
+  messagingSenderId: "79907609973",
+  appId: "1:79907609973:web:a65ab09ce59b99d37f873c",
+  measurementId: "G-34SBTMX2FX"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+  if(user){
+    document.getElementById("userName").innerText = user.email.split("@")[0];
+    document.getElementById("userEmail").innerText = user.email;
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
+document.querySelector(".logout").addEventListener("click", () => {
+  signOut(auth).then(() => {
+    window.location.href = "login.html";
+  });
+});
+</script>
 </body>
 </html>
