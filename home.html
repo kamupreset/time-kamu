@@ -37,6 +37,7 @@ background:white;
 padding:8px 14px;
 border-radius:20px;
 font-weight:bold;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
 
 .icons{
@@ -53,6 +54,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
 
 .title{
@@ -70,6 +72,7 @@ padding:15px;
 display:flex;
 align-items:center;
 gap:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
 
 .search input{
@@ -98,6 +101,7 @@ padding:10px 18px;
 border-radius:20px;
 white-space:nowrap;
 font-size:14px;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
 
 .active{
@@ -124,6 +128,12 @@ border-radius:20px;
 overflow:hidden;
 aspect-ratio:1/1;
 background:#ddd;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-3px);
 }
 
 .card img{
@@ -167,17 +177,19 @@ display:flex;
 justify-content:space-around;
 padding:15px 10px;
 box-shadow:0 5px 25px rgba(0,0,0,.12);
+z-index:999;
 }
 
 .nav{
 text-align:center;
 font-size:13px;
+cursor:pointer;
 }
 
 .music{
 position:fixed;
 right:20px;
-bottom:90px;
+bottom:95px;
 width:55px;
 height:55px;
 border-radius:50%;
@@ -187,6 +199,14 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:22px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+z-index:999;
+transition:.3s;
+}
+
+.music:active{
+transform:scale(.92);
 }
 </style>
 </head>
@@ -233,25 +253,25 @@ Popular Presets
 
 <div class="grid">
 
-<div class="card">
+<div class="card" onclick="location.href='preset.html'">
 <img src="https://picsum.photos/500?1">
 <div class="badge">VIP</div>
 <div class="name">Cinematic Preset</div>
 </div>
 
-<div class="card">
+<div class="card" onclick="location.href='preset.html'">
 <img src="https://picsum.photos/500?2">
 <div class="badge">VIP</div>
 <div class="name">Dark Tone Preset</div>
 </div>
 
-<div class="card">
+<div class="card" onclick="location.href='preset.html'">
 <img src="https://picsum.photos/500?3">
 <div class="badge">VIP</div>
 <div class="name">Photo Master</div>
 </div>
 
-<div class="card">
+<div class="card" onclick="location.href='preset.html'">
 <img src="https://picsum.photos/500?4">
 <div class="badge">VIP</div>
 <div class="name">Reel Editing Pack</div>
@@ -261,29 +281,46 @@ Popular Presets
 
 </div>
 
-<div class="music">
-🎵
-</div>
+<div class="music">🎵</div>
 
 <div class="bottom">
 
-<div class="nav">
+<div class="nav" onclick="location.href='home.html'">
 🏠<br>Home
 </div>
 
-<div class="nav">
+<div class="nav" onclick="location.href='preset.html'">
 🎬<br>Preset
 </div>
 
-<div class="nav">
+<div class="nav" onclick="location.href='orders.html'">
 📦<br>Orders
 </div>
 
-<div class="nav">
+<div class="nav" onclick="location.href='profile.html'">
 👤<br>Profile
 </div>
 
 </div>
+
+<audio id="bgMusic" loop>
+<source src="song1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const musicBtn = document.querySelector(".music");
+const music = document.getElementById("bgMusic");
+
+musicBtn.onclick = function(){
+if(music.paused){
+music.play();
+musicBtn.innerHTML="🔊";
+}else{
+music.pause();
+musicBtn.innerHTML="🎵";
+}
+};
+</script>
 
 </body>
 </html>
