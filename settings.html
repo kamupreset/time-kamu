@@ -17,7 +17,7 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f6f6f7;
+background:#f6f6f6;
 padding:20px;
 }
 
@@ -85,10 +85,11 @@ height:24px;
 background:#ddd;
 border-radius:20px;
 position:relative;
+cursor:pointer;
+transition:.3s;
 }
 
-.toggle::after{
-content:'';
+.toggle span{
 position:absolute;
 width:18px;
 height:18px;
@@ -96,6 +97,7 @@ background:white;
 border-radius:50%;
 top:3px;
 left:3px;
+transition:.3s;
 }
 
 .logout{
@@ -139,25 +141,35 @@ onclick="location.href='profile.html'">
 
 <div class="item">
 <span>🔔 Notifications</span>
-<div class="toggle"></div>
+<div class="toggle">
+<span></span>
+</div>
 </div>
 
 <div class="item">
 <span>🎵 Background Music</span>
-<div class="toggle"></div>
+<div class="toggle">
+<span></span>
+</div>
 </div>
 
 <div class="item">
 <span>🌙 Dark Mode</span>
-<div class="toggle"></div>
+<div class="toggle">
+<span></span>
+</div>
 </div>
 
-<div class="item" onclick="location.href='orders.html'" style="cursor:pointer;">
+<div class="item"
+onclick="location.href='orders.html'"
+style="cursor:pointer;">
 <span>📦 Download History</span>
 <span>›</span>
 </div>
 
-<div class="item" onclick="location.href='support.html'" style="cursor:pointer;">
+<div class="item"
+onclick="location.href='support.html'"
+style="cursor:pointer;">
 <span>💬 Support Center</span>
 <span>›</span>
 </div>
@@ -179,6 +191,34 @@ TIME KAMU Settings
 </div>
 
 </div>
+
+<script>
+
+document.querySelectorAll('.toggle').forEach(toggle=>{
+
+toggle.addEventListener('click',function(){
+
+const ball=this.querySelector('span');
+
+if(this.classList.contains('active')){
+
+this.classList.remove('active');
+this.style.background='#ddd';
+ball.style.left='3px';
+
+}else{
+
+this.classList.add('active');
+this.style.background='black';
+ball.style.left='24px';
+
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
