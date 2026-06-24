@@ -19,86 +19,113 @@ font-family:'Poppins',sans-serif;
 body{
 background:#f6f6f7;
 padding:20px;
+padding-bottom:100px;
 }
 
 .container{
-max-width:420px;
+max-width:430px;
 margin:auto;
 }
 
-.header{
+.back-btn{
+width:55px;
+height:55px;
+border:none;
+background:white;
+border-radius:50%;
+font-size:24px;
+font-weight:bold;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+margin-bottom:15px;
+cursor:pointer;
+}
+
+.hero{
 background:white;
 padding:25px;
 border-radius:30px;
-box-shadow:0 8px 25px rgba(0,0,0,.05);
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 margin-bottom:20px;
 }
 
-.header h1{
+.hero h1{
 font-size:34px;
 font-weight:800;
 }
 
-.header p{
+.hero p{
+margin-top:6px;
 color:#888;
-margin-top:5px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-
-.card{
-background:white;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,.04);
-}
-
-.card img{
-width:100%;
-aspect-ratio:1/1;
-object-fit:cover;
-}
-
-.info{
-padding:12px;
-}
-
-.info h3{
 font-size:15px;
-margin-bottom:8px;
+}
+
+.preset-card{
+background:white;
+padding:15px;
+border-radius:28px;
+display:flex;
+gap:15px;
+margin-bottom:18px;
+position:relative;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.preset-card img{
+width:110px;
+height:110px;
+object-fit:cover;
+border-radius:20px;
+}
+
+.vip{
+position:absolute;
+top:12px;
+right:12px;
+background:black;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+}
+
+.content{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.content h3{
+font-size:20px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.content p{
+font-size:13px;
+color:#888;
+margin-bottom:12px;
 }
 
 .download{
-width:100%;
-height:42px;
+height:44px;
 border:none;
-background:#111;
+background:black;
 color:white;
-border-radius:12px;
-font-weight:600;
-cursor:pointer;
-}
-
-.back{
-width:100%;
-height:58px;
-margin-top:25px;
-border:none;
-background:white;
-border:2px solid #e5e5e5;
-border-radius:18px;
-font-size:16px;
+border-radius:14px;
+font-size:14px;
 font-weight:700;
 cursor:pointer;
 }
 
+.download:active{
+transform:scale(.98);
+}
+
 .footer{
 text-align:center;
-margin-top:20px;
+margin-top:25px;
 font-size:13px;
 color:#999;
 }
@@ -110,59 +137,82 @@ color:#999;
 
 <div class="container">
 
-<div class="header">
+<button class="back-btn" onclick="location.href='profile.html'">
+←
+</button>
+
+<div class="hero">
 <h1>Purchased</h1>
-<p>Your Premium Presets</p>
+<p>Your Premium Preset Collection</p>
 </div>
 
-<div class="grid">
+<div class="preset-card">
 
-<div class="card">
+<div class="vip">VIP</div>
+
 <img src="https://picsum.photos/500?11">
-<div class="info">
+
+<div class="content">
 <h3>Cinematic Preset</h3>
+<p>Premium Color Grading Pack</p>
+
 <button class="download">
 Download
 </button>
 </div>
+
 </div>
 
-<div class="card">
+<div class="preset-card">
+
+<div class="vip">VIP</div>
+
 <img src="https://picsum.photos/500?12">
-<div class="info">
+
+<div class="content">
 <h3>Dark Tone Preset</h3>
+<p>Professional Dark Look Pack</p>
+
 <button class="download">
 Download
 </button>
 </div>
+
 </div>
 
-<div class="card">
+<div class="preset-card">
+
+<div class="vip">VIP</div>
+
 <img src="https://picsum.photos/500?13">
-<div class="info">
+
+<div class="content">
 <h3>Photo Master</h3>
+<p>Premium Photo Editing Bundle</p>
+
 <button class="download">
 Download
 </button>
 </div>
+
 </div>
 
-<div class="card">
+<div class="preset-card">
+
+<div class="vip">VIP</div>
+
 <img src="https://picsum.photos/500?14">
-<div class="info">
+
+<div class="content">
 <h3>Reel Editing Pack</h3>
+<p>Trending Reel Preset Collection</p>
+
 <button class="download">
 Download
 </button>
 </div>
-</div>
 
 </div>
-
-<button class="back"
-onclick="window.location.href='profile.html'">
-Back To Profile
-</button>
 
 <div class="footer">
 TIME KAMU Premium Library
