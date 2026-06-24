@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIME KAMU Admin Panel</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f6f6f6;
+padding:20px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.title{
+font-size:30px;
+font-weight:bold;
+margin-bottom:20px;
+text-align:center;
+}
+
+.input,
+.select,
+.textarea{
+width:100%;
+padding:15px;
+border:2px solid #eee;
+border-radius:15px;
+margin-bottom:15px;
+font-size:16px;
+}
+
+.textarea{
+height:120px;
+resize:none;
+}
+
+.btn{
+width:100%;
+height:55px;
+border:none;
+background:black;
+color:white;
+font-size:18px;
+font-weight:bold;
+border-radius:15px;
+cursor:pointer;
+}
+
+.status{
+margin-top:15px;
+text-align:center;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">
+👑 ADMIN PANEL
+</div>
+
+<input id="title" class="input" placeholder="Preset Name">
+
+<input id="thumbnail" class="input" placeholder="Thumbnail URL">
+
+<input id="video" class="input" placeholder="Video URL">
+
+<textarea id="description" class="textarea" placeholder="Description"></textarea>
+
+<input id="price" class="input" placeholder="Price">
+
+<select id="category" class="select">
+<option>Photo</option>
+<option>Video</option>
+<option>Premium</option>
+<option>VIP</option>
+</select>
+
+<button class="btn" onclick="addPreset()">
+ADD PRESET
+</button>
+
+<div id="status" class="status"></div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyDbrMx6RdN_VnSxt1VspKn8yA5HvNeHMQE",
+authDomain: "kamupreset1.firebaseapp.com",
+projectId: "kamupreset1",
+storageBucket: "kamupreset1.firebasestorage.app",
+messagingSenderId: "79907609973",
+appId: "1:79907609973:web:a65ab09ce59b99d37f873c",
+measurementId: "G-34SBTMX2FX"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+onAuthStateChanged(auth,(user)=>{
+
+if(!user){
+window.location.href="login.html";
+return;
+}
+
+if(user.email !== "indrajitbhunia502@gmail.com"){
+alert("Access Denied");
+window.location.href="home.html";
+}
+
+});
+
+window.addPreset = async function(){
+
+try{
+
+await addDoc(collection(db,"presets"),{
+
+title:
+document.getElementById("title").value,
+
+thumbnail:
+document.getElementById("thumbnail").value,
+
+video:
+document.getElementById("video").value,
+
+description:
+document.getElementById("description").value,
+
+price:
+document.getElementById("price").value,
+
+category:
+document.getElementById("category").value,
+
+createdAt:
+Date.now()
+
+});
+
+document.getElementById("status").innerHTML =
+"✅ Preset Added Successfully";
+
+}catch(error){
+
+document.getElementById("status").innerHTML =
+error.message;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
