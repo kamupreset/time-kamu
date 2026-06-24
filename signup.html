@@ -118,6 +118,8 @@ Create Your Premium Account
 
 <input type="text" id="username" class="input" placeholder="Username">
 
+<input type="email" id="email" class="input" placeholder="Email Address">
+
 <input type="text" id="whatsapp" class="input" placeholder="WhatsApp Number">
 
 <input type="password" id="password" class="input" placeholder="Password">
@@ -135,14 +137,40 @@ Already have an account?
 
 </div>
 
-<script>
+<script type="module">
 
-const API_URL = "https://script.google.com/macros/s/AKfycbwcg1WMEq1xKt5o8GxgU3GLr9AiWNI9GcQrugiZxqRaZ69Oh9zfUEZ90a7_shl9J0Cz/exec";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-function signup(){
+import {
+getAuth,
+createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+setDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyDbrMx6RdN_VnSxt1VspKn8yA5HvNeHMQE",
+authDomain: "kamupreset1.firebaseapp.com",
+projectId: "kamupreset1",
+storageBucket: "kamupreset1.firebasestorage.app",
+messagingSenderId: "79907609973",
+appId: "1:79907609973:web:a65ab09ce59b99d37f873c",
+measurementId: "G-34SBTMX2FX"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.signup = async function(){
 
 let name = document.getElementById("name").value;
 let username = document.getElementById("username").value;
+let email = document.getElementById("email").value;
 let whatsapp = document.getElementById("whatsapp").value;
 let password = document.getElementById("password").value;
 let confirm = document.getElementById("confirm").value;
@@ -152,24 +180,34 @@ alert("Password not match");
 return;
 }
 
-fetch(API_URL,{
-method:"POST",
-body:JSON.stringify({
-action:"signup",
+try{
+
+const userCredential =
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+await setDoc(
+doc(db,"users",userCredential.user.uid),
+{
 name:name,
 username:username,
-whatsapp:whatsapp,
-password:password
-})
-})
-.then(res=>res.json())
-.then(data=>{
+email:email,
+whatsapp:whatsapp
+}
+);
+
 alert("Account Created Successfully");
+
 window.location.href="login.html";
-})
-.catch(()=>{
-alert("Server Error");
-});
+
+}catch(error){
+
+alert(error.message);
+
+}
 
 }
 
