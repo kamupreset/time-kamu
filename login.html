@@ -100,8 +100,6 @@ Login To Your Account
 <button class="btn" onclick="login()">
 LOGIN
 </button>
-LOGIN
-</button>
 
 <a href="index.html" class="back">
 ← Back To Home
@@ -119,24 +117,22 @@ signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDbrMx6RdN_VnSxt1VspKn8yA5HvNeHMQE",
-  authDomain: "kamupreset1.firebaseapp.com",
-  projectId: "kamupreset1",
-  storageBucket: "kamupreset1.firebasestorage.app",
-  messagingSenderId: "79907609973",
-  appId: "1:79907609973:web:a65ab09ce59b99d37f873c",
-  measurementId: "G-34SBTMX2FX"
+apiKey: "AIzaSyDbrMx6RdN_VnSxt1VspKn8yA5HvNeHMQE",
+authDomain: "kamupreset1.firebaseapp.com",
+projectId: "kamupreset1",
+storageBucket: "kamupreset1.appspot.com",
+messagingSenderId: "79907609973",
+appId: "1:79907609973:web:a65ab09ce59b99d37f873c"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 window.login = async function(){
-alert("Login Started");
+
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
-alert(email);
-alert(password);
+
 try{
 
 await signInWithEmailAndPassword(
@@ -147,11 +143,11 @@ password
 
 alert("Login Successful");
 
-window.location.href="home.html";
+window.location.href = "home.html";
 
 }catch(error){
 
-alert(error.message);
+alert(error.code + "\n" + error.message);
 
 }
 
