@@ -96,7 +96,6 @@ font-weight:bold;
 text-decoration:none;
 }
 </style>
-
 </head>
 
 <body>
@@ -115,17 +114,17 @@ text-decoration:none;
 Create Your Premium Account
 </div>
 
-<input type="text" class="input" placeholder="Full Name">
+<input type="text" id="name" class="input" placeholder="Full Name">
 
-<input type="text" class="input" placeholder="Username">
+<input type="text" id="username" class="input" placeholder="Username">
 
-<input type="text" class="input" placeholder="WhatsApp Number">
+<input type="text" id="whatsapp" class="input" placeholder="WhatsApp Number">
 
-<input type="password" class="input" placeholder="Password">
+<input type="password" id="password" class="input" placeholder="Password">
 
-<input type="password" class="input" placeholder="Confirm Password">
+<input type="password" id="confirm" class="input" placeholder="Confirm Password">
 
-<button class="btn">
+<button class="btn" onclick="signup()">
 CREATE ACCOUNT
 </button>
 
@@ -135,6 +134,46 @@ Already have an account?
 </div>
 
 </div>
+
+<script>
+
+const API_URL = "https://script.google.com/macros/s/AKfycbwcg1WMEq1xKt5o8GxgU3GLr9AiWNI9GcQrugiZxqRaZ69Oh9zfUEZ90a7_shl9J0Cz/exec";
+
+function signup(){
+
+let name = document.getElementById("name").value;
+let username = document.getElementById("username").value;
+let whatsapp = document.getElementById("whatsapp").value;
+let password = document.getElementById("password").value;
+let confirm = document.getElementById("confirm").value;
+
+if(password !== confirm){
+alert("Password not match");
+return;
+}
+
+fetch(API_URL,{
+method:"POST",
+body:JSON.stringify({
+action:"signup",
+name:name,
+username:username,
+whatsapp:whatsapp,
+password:password
+})
+})
+.then(res=>res.json())
+.then(data=>{
+alert("Account Created Successfully");
+window.location.href="login.html";
+})
+.catch(()=>{
+alert("Server Error");
+});
+
+}
+
+</script>
 
 </body>
 </html>
