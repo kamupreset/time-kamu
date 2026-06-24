@@ -1,12 +1,5 @@
-<audio id="bgMusic" loop>
-  <source src="song1.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-
-const toggles = document.querySelectorAll('.toggle');
-
-toggles.forEach((toggle,index)=>{
+document.querySelectorAll('.toggle').forEach(toggle=>{
 
 toggle.addEventListener('click',function(){
 
@@ -17,42 +10,15 @@ this.classList.remove('active');
 this.style.background='#ddd';
 ball.style.left='3px';
 
-if(index===1){
-document.getElementById('bgMusic').pause();
-}
-
-if(index===2){
-document.body.style.background='#f6f6f6';
-document.body.style.color='black';
-}
-
 }else{
 
 this.classList.add('active');
 this.style.background='black';
 ball.style.left='24px';
 
-if(index===1){
-document.getElementById('bgMusic').play();
-}
-
-if(index===2){
-document.body.style.background='#111';
-document.body.style.color='white';
-
-document.querySelector('.hero').style.background='#222';
-document.querySelector('.menu').style.background='#222';
-
-document.querySelectorAll('.item').forEach(item=>{
-item.style.borderBottom='1px solid #333';
-item.style.color='white';
-});
-}
-
 }
 
 });
 
 });
-
 </script>
