@@ -97,7 +97,7 @@ Login To Your Account
 
 <input type="password" id="password" class="input" placeholder="Password">
 
-<button class="btn" onclick="alert('Working')">
+<button class="btn" onclick="login()">
 LOGIN
 </button>
 LOGIN
@@ -132,7 +132,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 window.login = async function(){
-
+alert("Login Started");
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
 
