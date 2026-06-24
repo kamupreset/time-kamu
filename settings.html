@@ -1,24 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - TIME KAMU</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f6f6f6;
+padding:20px;
+transition:.3s;
+}
+
+.container{
+max-width:430px;
+margin:auto;
+}
+
+.back-btn{
+width:55px;
+height:55px;
+border:none;
+background:white;
+border-radius:50%;
+font-size:24px;
+font-weight:bold;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+margin-bottom:15px;
+cursor:pointer;
+}
+
+.hero{
+background:white;
+padding:25px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+margin-bottom:20px;
+transition:.3s;
+}
+
+.hero h1{
+font-size:34px;
+font-weight:800;
+}
+
+.hero p{
+margin-top:6px;
+color:#888;
+font-size:15px;
+}
+
+.menu{
+background:white;
+border-radius:28px;
+padding:10px 20px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+border-bottom:1px solid #eee;
+font-size:16px;
+font-weight:600;
+}
+
+.item:last-child{
+border-bottom:none;
+}
+
+.switch{
+position:relative;
+display:inline-block;
+width:50px;
+height:26px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ddd;
+border-radius:30px;
+transition:.3s;
+}
+
+.slider:before{
+content:"";
+position:absolute;
+height:20px;
+width:20px;
+left:3px;
+bottom:3px;
+background:white;
+border-radius:50%;
+transition:.3s;
+}
+
+input:checked + .slider{
+background:black;
+}
+
+input:checked + .slider:before{
+transform:translateX(24px);
+}
+
+.logout{
+width:100%;
+height:58px;
+border:none;
+background:black;
+color:white;
+border-radius:18px;
+font-size:17px;
+font-weight:700;
+margin-top:20px;
+cursor:pointer;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+font-size:13px;
+color:#999;
+}
+
+.dark{
+background:#111;
+color:white;
+}
+
+.dark .hero,
+.dark .menu{
+background:#222;
+color:white;
+}
+
+.dark .item{
+border-bottom:1px solid #333;
+}
+
+.dark .back-btn{
+background:#222;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button class="back-btn"
+onclick="location.href='profile.html'">
+←
+</button>
+
+<div class="hero">
+<h1>Settings</h1>
+<p>Manage your TIME KAMU account</p>
+</div>
+
+<div class="menu">
+
+<div class="item">
+<span>🔔 Notifications</span>
+
+<label class="switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+
+</div>
+
+<div class="item">
+<span>🎵 Background Music</span>
+
+<label class="switch">
+<input type="checkbox" id="musicToggle">
+<span class="slider"></span>
+</label>
+
+</div>
+
+<div class="item">
+<span>🌙 Dark Mode</span>
+
+<label class="switch">
+<input type="checkbox" id="darkToggle">
+<span class="slider"></span>
+</label>
+
+</div>
+
+<div class="item"
+onclick="location.href='orders.html'"
+style="cursor:pointer;">
+<span>📦 Download History</span>
+<span>›</span>
+</div>
+
+<div class="item"
+onclick="location.href='support.html'"
+style="cursor:pointer;">
+<span>💬 Support Center</span>
+<span>›</span>
+</div>
+
+<div class="item">
+<span>📱 Version</span>
+<span>v1.0</span>
+</div>
+
+</div>
+
+<button class="logout"
+onclick="location.href='login.html'">
+Logout
+</button>
+
+<div class="footer">
+TIME KAMU Settings
+</div>
+
+</div>
+
+<audio id="bgMusic" loop>
+<source src="song1.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-document.querySelectorAll('.toggle').forEach(toggle=>{
 
-toggle.addEventListener('click',function(){
+const musicToggle =
+document.getElementById("musicToggle");
 
-const ball=this.querySelector('span');
+const darkToggle =
+document.getElementById("darkToggle");
 
-if(this.classList.contains('active')){
-this.classList.remove('active');
-this.style.background='#ddd';
-ball.style.left='3px';
+const music =
+document.getElementById("bgMusic");
 
+musicToggle.addEventListener("change",()=>{
+
+if(musicToggle.checked){
+music.play();
 }else{
-
-this.classList.add('active');
-this.style.background='black';
-ball.style.left='24px';
-
+music.pause();
 }
 
 });
 
+darkToggle.addEventListener("change",()=>{
+
+document.body.classList.toggle("dark");
+
 });
+
 </script>
+
+</body>
+</html>
